@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhmad Reiza</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+    <link rel="icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+    <!-- google font start -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- google font end -->
+    <script type="text/javascript">
+        function githubLogoBrighnessReduced() {
+            var logo = document.getElementById("github-logo");
+            logo.style = "filter: brightness(30%);"
+        }
+        function githubLogoReset() {
+            var logo = document.getElementById("github-logo");
+            logo.style = "filter: brightness(100%);"
+        }
+        function twitterLogoBrighnessReduced() {
+            var logo = document.getElementById("twitter-logo");
+            logo.style = "filter: brightness(30%);"
+        }
+        function twitterLogoReset() {
+            var logo = document.getElementById("twitter-logo");
+            logo.style = "filter: brightness(100%);"
+        }
+        function linkedinLogoBrighnessReduced() {
+            var logo = document.getElementById("linkedin-logo");
+            logo.style = "filter: brightness(30%);"
+        }
+        function linkedinLogoReset() {
+            var logo = document.getElementById("linkedin-logo");
+            logo.style = "filter: brightness(100%);"
+        }
+    </script>
+</head>
+<body>
+    <div class="row">
+        <div class="side">
+            <div class="content-left">
+                <h1>
+                    Hello, <span class="nick">I am</span> </br>
+                    Akhmad <span class="nick">Reiza</span> Armando.
+                </h1>
+                <p>
+                    <a href="#stack">Skills</a> |
+                    <a href="#wexperience">Experience</a> |
+                    <a href="#projects">Recent Work</a> |
+                    <a href="./blog-list">Blog</a>
+                </p>
+                <p>
+                    Software Engineer with 8+ years of full-stack experience designing, developing and maintaining web application and back end services.
+                </p>
+                <div>
+                    <a href="https://github.com/akhmadreiza" style="text-decoration: none;" target="blank">
+                        <img id="github-logo" th:src="@{/img/GitHub-Mark-Light-120px-plus.png}" width="32px"
+                             onmouseover="githubLogoBrighnessReduced();"
+                             onmouseout="githubLogoReset();"
+                             onmousedown="githubLogoBrighnessReduced();"
+                             onmouseup="githubLogoReset();"
+                        />
+                    </a>
+                    &nbsp;
+                    <a href="https://twitter.com/akhmadreiza" style="text-decoration: none;" target="blank">
+                        <img id="twitter-logo" th:src="@{/img/Twitter-social-icons-circle-white.png}" width="32px"
+                             onmouseover="twitterLogoBrighnessReduced();"
+                             onmouseout="twitterLogoReset();"
+                             onmousedown="twitterLogoBrighnessReduced();"
+                             onmouseup="twitterLogoReset();"
+                        />
+                    </a>
+                    &nbsp;
+                    <a href="https://www.linkedin.com/in/akhmadreiza27" style="text-decoration: none;" target="blank">
+                        <img id="linkedin-logo" th:src="@{/img/linkedin_logo_white.png}" width="32px"
+                             onmouseover="linkedinLogoBrighnessReduced();"
+                             onmouseout="linkedinLogoReset();"
+                             onmousedown="linkedinLogoBrighnessReduced();"
+                             onmouseup="linkedinLogoReset();"
+                        />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-right">
+                <div id="stack">
+                    <div class="content-container">
+                        [(${contentSkill})]
+                    </div>
+                </div>
+                <div id="wexperience">
+                    <div class="content-container">
+                        [(${contentWexperience})]
+                    </div>
+                </div>
+                <div id="projects">
+                    <h2>Recent Work</h2>
+                    <div class="projectsContainer">
+                        <div class="content-container">
+                            [(${contentRecentWorks})]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

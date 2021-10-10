@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    height: 100%;
+    /* background-color: #343a40; */
+    /* background-color: #1c1c1c; */
+    /* background-color: #2d3142; */
+    background-color: #121212;
+}
+
+.side {
+    height: 100%;
+    /* width: 650px; */
+    float: left;
+    width: 45%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow-x: hidden;
+    overflow: hidden;
+}
+
+.content {
+    height: 100%;
+    /*margin-left: 700px;*/ /*sidebar width + 50px*/
+    float: right;
+    width: 55%;
+}
+
+.content-left {
+    padding: 20px 100px;
+}
+
+.content-left h1 {
+    font-size: 40px;
+    color: #FFFFFF;
+}
+
+.content-left p, ul, li {
+    line-height: 1.5;
+    color: #bebebe;
+}
+
+.content-right ul, li {
+    line-height: 1.5;
+    color: #bebebe;
+}
+
+.content-right {
+    padding: 20px 0px 50px 10px;
+    width: 85%;
+}
+
+.content-right h1 {
+    font-size: 50px;
+    color: #FFFFFF;
+}
+
+.content-right h2 {
+    color: #FFFFFF;
+}
+
+.content-right h4 {
+    margin: 25px 0px 0px 0px;
+    color: #FFFFFF;
+}
+
+.content-right h5 {
+    margin: 5px 0px 10px 0px;
+    color: #e5e5e5;
+}
+
+.content-right p {
+    line-height: 1.5;
+    color: #bebebe;
+}
+
+.year {
+    margin-left: 5px;
+    color: #bebebe;
+}
+
+.content-container {
+    margin-bottom: 50px;
+}
+
+a {
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+a:hover {
+    color: #878683;
+}
+
+.nick {
+    color: #878683;
+}
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width: 999px) {
+    .side, .content {
+        width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+        float: left;
+    }
+    .side {
+        position: relative;
+    }
+    ul {
+        padding: 0px 20px;
+    }
+    .content-left {
+        /* padding: 20px 30px 0px; */
+        padding: 10px 10px;
+        margin: 0px 18px
+    }
+    .content-right {
+        padding: 0px 30px 50px 30px;
+        width: 100%;
+    }
+}
