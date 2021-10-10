@@ -32,4 +32,8 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("")
+    public String getHomeNoPath(Model model) {
+        return getHome(model);
+    }
 }
