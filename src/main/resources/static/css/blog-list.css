@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    height: 100%;
+    /* background-color: #343a40; */
+    /* background-color: #1c1c1c; */
+    /* background-color: #2d3142; */
+    background-color: #121212;
+}
+
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+}
+
+.content-left {
+    margin: auto;
+    width: 50%;
+    padding: 10px 10px;
+}
+
+.content-left h1 {
+    font-size: 50px;
+    color: #FFFFFF;
+    margin-bottom: 0;
+}
+
+.content-left p {
+    line-height: 1.5;
+    color: #bebebe;
+}
+
+.content-right {
+    margin: auto;
+    width: 50%;
+}
+
+.content-right h1 {
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.content-right h2 {
+    color: #FFFFFF;
+}
+
+.content-right h3 {
+    margin: 10px 0px;
+    color: #878683;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.content-right h4 {
+    margin: 5px 0px;
+    color: #FFFFFF;
+}
+
+.content-right h5 {
+    margin: 5px 0px 10px 0px;
+    color: #e5e5e5;
+}
+
+.content-right p, ul, li {
+    color: #bebebe;
+    line-height: 1.5;
+}
+
+.year {
+    margin-left: 5px;
+    color: #bebebe;
+}
+
+.content-container {
+    margin-bottom: 15px;
+    padding: 20px;
+    /* background-color: rgb(37, 37, 37); */
+    background-color: #1f1f1f;
+    /* for shadowing the div, need more research */
+    /* border: 1px solid; */
+    /* box-shadow: 5px 10px 18px #888888;  */
+}
+
+a {
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+a:hover {
+    color: #878683;
+}
+
+.nick {
+    color: #878683;
+}
+
+.post-date{
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+hr {
+    height:2px;
+    border-width:0;
+    color:#878683;
+    background-color:#878683;
+    margin: 30px 0px;
+}
+
+/* CSS for wordpress image */
+
+img {
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.wp-block-image, .is-style-default{
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+figcaption {
+    color: #878683;
+}
+
+/* CSS for wordpress image end */
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width: 1024px) {
+    .content-left, .content-right {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .content-left h1 {
+        font-size: 45px;
+    }
+    figure {
+        margin: 20px 0px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .content-left h1 {
+        font-size: 40px;
+    }
+    figure {
+        margin: 20px 0px;
+    }
+}
+
+@media screen and (max-width: 345px) {
+    .content-left h1 {
+        font-size: 35px;
+    }
+    figure {
+        margin: 20px 0px;
+    }
+}

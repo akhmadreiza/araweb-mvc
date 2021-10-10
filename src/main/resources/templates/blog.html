@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhmad Reiza | Blog</title>
+    <link th:href="@{/css/blog-list.css}" rel="stylesheet" />
+    <link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+    <link rel="icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
+    <!-- google font start -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- google font end -->
+</head>
+<body>
+    <div class="row">
+        <div class="content">
+            <div class="content-left">
+                <h1>
+                    Hello, <span class="nick">I am</span> </br>
+                    Akhmad <span class="nick">Reiza</span> Armando.
+                </h1>
+                <p>"I post mostly about personal and tech life. Sometimes about food maybe?"</p>
+                <p>
+                    <a th:href="@{/home}">About Me</a> |
+                    <a th:href="@{/blog}">Blog</a>
+                </p>
+                <hr>
+            </div>
+            <div class="content-right">
+                <!--content goes here-->
+                <div class="content-container" th:each="blogPost : ${blogPosts}">
+                    <!--title with h1 and link to the post-->
+                    <a th:href="@{/blog}">
+                        <h1 th:text="${blogPost.getTitle()}"></h1>
+                    </a>
+
+                    <!--post date with h3-->
+                    <h3 th:text="${blogPost.getCreatedDate()}"></h3>
+
+                    <span th:utext="${blogPost.getContentShort()}"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

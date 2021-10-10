@@ -7,12 +7,21 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Content {
     private String id;
-    private LocalDateTime createdDate;
+    private String createdDate;
     private LocalDateTime modifiedDate;
     private String slug;
     private String type;
     private String title;
     private String content;
+    private String contentShort;
+
+    public String getContentShort() {
+        return contentShort;
+    }
+
+    public void setContentShort(String contentShort) {
+        this.contentShort = contentShort;
+    }
 
     public String getId() {
         return id;
@@ -22,11 +31,11 @@ public class Content {
         this.id = id;
     }
 
-    public LocalDateTime getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 
