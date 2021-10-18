@@ -25,9 +25,17 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
-  araweb:
+  araweb-mvc:
     depends_on:
       - wordpress
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+  araweb:
+    depends_on:
+      - araweb-mvc
     build:
       context: .
       dockerfile: DockerfileNginx
@@ -36,14 +44,6 @@ services:
     ports:
       - "80:80"
       - "443:443"
-  araweb-mvc:
-    depends_on:
-      - araweb
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
 volumes:
   db_data: {}
   wordpress_data: {}
