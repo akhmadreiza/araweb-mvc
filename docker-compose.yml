@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.4"
 
 services:
   db:
@@ -33,6 +33,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    restart: always
   araweb:
     depends_on:
       - araweb-mvc
@@ -40,11 +41,10 @@ services:
       context: .
       dockerfile: DockerfileNginx
     volumes:
-      - letsencrypt:/etc/letsencrypt
+      - ~/araweb-cert/letsencrypt:/etc/letsencrypt
     ports:
       - "80:80"
       - "443:443"
 volumes:
   db_data: {}
   wordpress_data: {}
-  letsencrypt: {}

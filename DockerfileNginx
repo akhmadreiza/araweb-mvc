@@ -2,11 +2,8 @@ FROM nginx
 
 COPY /nginx.conf /etc/nginx/conf.d/default.conf
 
-RUN  apt-get update \
-      && apt-get install -y cron certbot python-certbot-nginx bash wget \
-      && certbot certonly --agree-tos -m "reizaarmando@gmail.com" -n --staging -d akhmadreiza.com,www.akhmadreiza.com
-      #&& certbot certonly --standalone --agree-tos -m "reizaarmando@gmail.com" -n -d akhmadreiza.com,www.akhmadreiza.com
-      #&& certbot certonly --webroot --webroot-path=/usr/share/nginx/html --agree-tos -m "reizaarmando@gmail.com" -n --staging -d akhmadreiza.com,www.akhmadreiza.com
-      #&& certbot certonly --webroot --webroot-path=/usr/share/nginx/html --agree-tos -m "reizaarmando@gmail.com" -n --force-renewal -d akhmadreiza.com,www.akhmadreiza.com
-
-VOLUME /etc/letsencrypt
+# uncomment to update the cert_start
+# RUN  apt-get update \
+#       && apt-get install -y cron certbot python-certbot-nginx bash wget \
+#       && certbot certonly --agree-tos -m "reizaarmando@gmail.com" -n --staging -d akhmadreiza.com,www.akhmadreiza.com
+# uncomment to update the cert_end
