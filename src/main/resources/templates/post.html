@@ -4,7 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akhmad Reiza</title>
+
+    <!-- Primary Meta Tags -->
+    <title th:text="${metaTag.getTitle()}"></title>
+    <meta name="title" th:content="${metaTag.getTitle()}">
+    <meta name="description" th:content="${metaTag.getDescription()}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" th:content="${metaTag.getUrl()}">
+    <meta property="og:title" th:content="${metaTag.getTitle()}">
+    <meta property="og:description" th:content="${metaTag.getDescription()}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" th:content="${metaTag.getUrl()}">
+    <meta property="twitter:title" th:content="${metaTag.getTitle()}">
+    <meta property="twitter:description" th:content="${metaTag.getDescription()}">
+
     <link th:href="@{/css/blog.css}" rel="stylesheet" />
     <link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
     <link rel="icon" th:href="@{/img/favicon.ico}" type="image/x-icon">

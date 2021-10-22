@@ -2,13 +2,14 @@ package com.akhmadreiza.arawebmvc.controller;
 
 import com.akhmadreiza.arawebmvc.domain.Content;
 import com.akhmadreiza.arawebmvc.service.ContentService;
+import com.akhmadreiza.arawebmvc.util.MetaTagGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -33,7 +34,7 @@ public class BlogController {
     }
 
     @GetMapping("/{slug}")
-    public String getBlogPost(Model model, @PathVariable(name = "slug") String slug) {
+    public String getBlogPost(Model model, @PathVariable(name = "slug") String slug, HttpServletRequest httpServletRequest) {
         if (ObjectUtils.isEmpty(slug)) {
             return homeController.getHome(model);
         }
@@ -43,6 +44,7 @@ public class BlogController {
         if (!contentList.isEmpty()) {
             Content content = contentList.get(0);
             model.addAttribute("content", content);
+            model.addAttribute("metaTag", MetaTagGenerator.generate(content, httpServletRequest));
             return "post";
         }
 
