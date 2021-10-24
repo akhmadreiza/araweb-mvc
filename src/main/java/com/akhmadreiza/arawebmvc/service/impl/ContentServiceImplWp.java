@@ -3,6 +3,7 @@ package com.akhmadreiza.arawebmvc.service.impl;
 import com.akhmadreiza.arawebmvc.domain.Content;
 import com.akhmadreiza.arawebmvc.service.ContentService;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +15,12 @@ import java.util.List;
 
 @Service
 public class ContentServiceImplWp implements ContentService {
+
+    @Value("${araweb.wp.ip}")
+    private String websiteIpAddress;
+
+    @Value("${araweb.url}")
+    private String websiteUrl;
 
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("EEE, d MMM yyyy");
 
@@ -50,7 +57,7 @@ public class ContentServiceImplWp implements ContentService {
                     Content content = new Content();
                     content.setId(body.get("id").asText());
                     content.setType(body.get("type").asText());
-                    content.setContent(body.get("content").get("rendered").asText().replace("http://206.189.86.170:8000", "https://akhmadreiza.com"));
+                    content.setContent(body.get("content").get("rendered").asText().replace(websiteIpAddress, websiteUrl));
                     content.setTitle(body.get("title").get("rendered").asText());
                     LocalDateTime dateTime = LocalDateTime.parse(body.get("date").asText(), ISO_FORMATTER);
                     content.setCreatedDate(dateTime.format(FORMATTER));

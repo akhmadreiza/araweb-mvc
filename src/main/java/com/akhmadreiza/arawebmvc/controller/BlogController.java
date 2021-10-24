@@ -3,6 +3,7 @@ package com.akhmadreiza.arawebmvc.controller;
 import com.akhmadreiza.arawebmvc.domain.Content;
 import com.akhmadreiza.arawebmvc.service.ContentService;
 import com.akhmadreiza.arawebmvc.util.MetaTagGenerator;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ObjectUtils;
@@ -15,7 +16,8 @@ import java.util.List;
 @Controller
 public class BlogController {
 
-    private static final String BASE_URL = "https://akhmadreiza.com/wp-json";
+    @Value("${araweb.wp.url}")
+    private String wordpressUrl;
 
     private ContentService contentService;
 
@@ -28,7 +30,7 @@ public class BlogController {
 
     @GetMapping("/blog")
     public String getBlogList(Model model) {
-        List<Content> contentList = contentService.getContents(BASE_URL +"/wp/v2/posts");
+        List<Content> contentList = contentService.getContents(wordpressUrl +"/wp/v2/posts");
         model.addAttribute("blogPosts", contentList);
         return "blog";
     }
@@ -39,7 +41,7 @@ public class BlogController {
             return homeController.getHome(model);
         }
 
-        String url = BASE_URL + "/wp/v2/posts?slug=" + slug;
+        String url = wordpressUrl + "/wp/v2/posts?slug=" + slug;
         List<Content> contentList = contentService.getContents(url);
         if (!contentList.isEmpty()) {
             Content content = contentList.get(0);
