@@ -15,12 +15,15 @@
     <meta property="og:url" th:content="${metaTag.getUrl()}">
     <meta property="og:title" th:content="${metaTag.getTitle()}">
     <meta property="og:description" th:content="${metaTag.getDescription()}">
+    <meta property="og:image" th:content="${metaTag.getImgUrl()}">
+
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" th:content="${metaTag.getUrl()}">
     <meta property="twitter:title" th:content="${metaTag.getTitle()}">
     <meta property="twitter:description" th:content="${metaTag.getDescription()}">
+    <meta property="twitter:image" th:content="${metaTag.getImgUrl()}">
 
     <link th:href="@{/css/blog.css}" rel="stylesheet" />
     <link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon">
@@ -63,6 +66,10 @@
                     <h3>
                         <span th:utext="${content.getCreatedDate()}"></span>
                     </h3>
+                    <figure th:if="${content.getMedia() != null}" class="wp-block-image size-full">
+                        <img th:src="${content.getMedia().getMediaUrl()}">
+                        <figcaption th:utext="${content.getMedia().getMediaCaption()}"></figcaption>
+                    </figure>
                     <span th:utext="${content.getContent()}"></span>
                 </div>
             </div>

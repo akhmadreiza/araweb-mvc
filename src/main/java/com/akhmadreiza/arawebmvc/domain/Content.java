@@ -14,6 +14,24 @@ public class Content {
     private String title;
     private String content;
     private String contentShort;
+    private String featuredMedia;
+    private Media media;
+
+    public String getFeaturedMedia() {
+        return featuredMedia;
+    }
+
+    public void setFeaturedMedia(String featuredMedia) {
+        this.featuredMedia = featuredMedia;
+    }
+
+    public Media getMedia() {
+        return media;
+    }
+
+    public void setMedia(Media media) {
+        this.media = media;
+    }
 
     public String getContentShort() {
         return contentShort;

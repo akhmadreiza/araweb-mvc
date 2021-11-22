@@ -63,6 +63,7 @@ public class ContentServiceImplWp implements ContentService {
                     content.setCreatedDate(dateTime.format(FORMATTER));
                     content.setContentShort(body.get("excerpt").get("rendered").asText().length() > 300 ? body.get("excerpt").get("rendered").asText().substring(0, 300) : body.get("excerpt").get("rendered").asText());
                     content.setSlug(body.get("slug").asText());
+                    content.setFeaturedMedia(body.get("featured_media") != null ? body.get("featured_media").asText() : null);
                     result.add(content);
                 }
             }

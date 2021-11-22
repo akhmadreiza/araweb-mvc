@@ -1,7 +1,9 @@
 package com.akhmadreiza.arawebmvc.controller;
 
 import com.akhmadreiza.arawebmvc.domain.Content;
+import com.akhmadreiza.arawebmvc.domain.MetaTag;
 import com.akhmadreiza.arawebmvc.service.ContentService;
+import com.akhmadreiza.arawebmvc.service.MediaService;
 import com.akhmadreiza.arawebmvc.util.MetaTagGenerator;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -19,18 +21,24 @@ public class BlogController {
     @Value("${araweb.wp.url}")
     private String wordpressUrl;
 
+    @Value("${araweb.default.featured.image}")
+    private String defaultImage;
+
     private ContentService contentService;
 
     private HomeController homeController;
 
-    public BlogController(ContentService contentService, HomeController homeController) {
+    private MediaService mediaService;
+
+    public BlogController(ContentService contentService, HomeController homeController, MediaService mediaService) {
         this.contentService = contentService;
         this.homeController = homeController;
+        this.mediaService = mediaService;
     }
 
     @GetMapping("/blog")
     public String getBlogList(Model model) {
-        List<Content> contentList = contentService.getContents(wordpressUrl +"/wp/v2/posts");
+        List<Content> contentList = contentService.getContents(wordpressUrl + "/wp/v2/posts");
         model.addAttribute("blogPosts", contentList);
         return "blog";
     }
@@ -45,8 +53,13 @@ public class BlogController {
         List<Content> contentList = contentService.getContents(url);
         if (!contentList.isEmpty()) {
             Content content = contentList.get(0);
+            if (content.getFeaturedMedia() != null && !content.getFeaturedMedia().equals("0")) {
+                content.setMedia(mediaService.getFeaturedImage(content.getFeaturedMedia()));
+            }
             model.addAttribute("content", content);
-            model.addAttribute("metaTag", MetaTagGenerator.generate(content, httpServletRequest));
+            MetaTag metaTag = MetaTagGenerator.generate(content, httpServletRequest);
+            metaTag.setImgUrl(ObjectUtils.isEmpty(metaTag.getImgUrl()) ? defaultImage : metaTag.getImgUrl());
+            model.addAttribute("metaTag", metaTag);
             return "post";
         }
 
