@@ -33,7 +33,7 @@ public class MediaServiceImplWp implements MediaService {
         if (wpJsonNodeRes.getBody() != null) {
             JsonNode resBody = wpJsonNodeRes.getBody();
             media.setId(mediaId);
-            media.setMediaUrl(resBody.get("guid").get("rendered").asText());
+            media.setMediaUrl(resBody.get("guid").get("rendered").asText().replace(websiteIpAddress, websiteUrl));
             media.setMediaType(resBody.get("media_type").asText());
             media.setMediaCaption(resBody.get("caption").get("rendered").asText());
             return media;
