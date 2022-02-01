@@ -30,7 +30,7 @@ body {
 
 .content-left {
     margin: auto;
-    width: 50%;
+    width: 45%;
     padding: 10px 10px;
 }
 
@@ -47,8 +47,9 @@ body {
 
 .content-right {
     margin: auto;
-    width: 50%;
+    width: 45%;
     padding: 10px 20px;
+    text-align: justify;
 }
 
 .content-right h1 {
@@ -79,7 +80,8 @@ body {
 
 .content-right p, ul, li {
     color: #bebebe;
-    line-height: 1.5;
+    line-height: 2;
+    margin: 30px 0 30px 0;
 }
 
 .year {
