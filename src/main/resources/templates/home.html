@@ -63,19 +63,28 @@
     <div class="row">
         <div class="side">
             <div class="content-left">
-                <h1>
-                    Hello, <span class="nick">I am</span> </br>
-                    Akhmad <span class="nick">Reiza</span> Armando.
-                </h1>
-                <p>
-                    <a href="#stack">Skills</a> |
-                    <a href="#wexperience">Experience</a> |
-                    <a href="#projects">Recent Work</a> |
-                    <a th:href="@{/blog}">Blog</a>
-                </p>
-                <p>
-                    Software Engineer with 8+ years of full-stack experience designing, developing and maintaining web application and back end services.
-                </p>
+                <div>
+                    <div class="my-photo">
+                        <img th:src="@{/img/website-photo.png}">
+                    </div>
+                    <div>
+                        <h1>
+                            Hello, <span class="nick">I am</span> </br>
+                            Akhmad <span class="nick">Reiza</span> Armando.
+                        </h1>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                        <a href="#stack">Skills</a> |
+                        <a href="#wexperience">Experience</a> |
+                        <a href="#projects">Recent Work</a> |
+                        <a th:href="@{/blog}">Blog</a>
+                    </p>
+                    <p>
+                        Software Engineer with 8+ years of full-stack experience designing, developing and maintaining web application and back end services.
+                    </p>
+                </div>
                 <div>
                     <a href="https://github.com/akhmadreiza" style="text-decoration: none;" target="blank">
                         <img id="github-logo" th:src="@{/img/GitHub-Mark-Light-120px-plus.png}" width="32px"

@@ -38,7 +38,7 @@ body {
 }
 
 .content-left {
-    padding: 20px 100px;
+    padding: 20px 40px;
 }
 
 .content-left h1 {
@@ -107,6 +107,15 @@ a:hover {
     color: #878683;
 }
 
+.my-photo {
+    float: left;
+    margin-right: 10px;
+}
+
+.my-photo img {
+    width: 150px; height: 150px; object-fit: cover; border-radius: 50%
+}
+
 /* Use a media query to add a break point at 800px: */
 @media screen and (max-width: 999px) {
     .side, .content {
@@ -127,5 +136,19 @@ a:hover {
     .content-right {
         padding: 0px 30px 50px 30px;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .my-photo {
+        float: none;
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .my-photo img {
+        width: 150px; height: 150px; object-fit: cover; border-radius: 50%
     }
 }
