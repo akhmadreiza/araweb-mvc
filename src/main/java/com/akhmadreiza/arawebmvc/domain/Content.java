@@ -3,6 +3,7 @@ package com.akhmadreiza.arawebmvc.domain;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Content {
@@ -16,6 +17,15 @@ public class Content {
     private String contentShort;
     private String featuredMedia;
     private Media media;
+    private List<Tag> tags;
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
 
     public String getFeaturedMedia() {
         return featuredMedia;

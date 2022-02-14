@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,6 +50,15 @@
             </div>
             <div class="content-right">
                 <!--content goes here-->
+                <div class="content-container" style="background-color: inherit; padding: 0 10px;" th:if="${tagged != null && !tagged.isEmpty()}">
+                    <!--<h1 th:text="${'All post about #' + tagged}"></h1>-->
+                    <!--<p>
+                        <a th:class="tagsLink" th:href="@{/blog (tags=${tagged})}" th:text="${'#' + tagged}"></a>
+                    </p>-->
+                    <p>
+                        <a th:class="tagsLink" th:href="@{/blog (tags=${tagged})}" th:text="${'#' + tagged}"></a>&nbsp; - Showing <span th:text="${blogPosts.size()}"></span> <span th:text="${blogPosts.size() == 1 ? 'entry. ' : 'entries. '}"></span> <a th:text="Back" th:href="@{/blog}"></a>
+                    </p>
+                </div>
                 <div class="content-container" th:each="blogPost : ${blogPosts}">
                     <!--title with h1 and link to the post-->
                     <a th:href="@{/{slug}(slug=${blogPost.getSlug()})}">
@@ -60,6 +69,11 @@
                     <h3 th:text="${blogPost.getCreatedDate()}"></h3>
 
                     <span th:utext="${blogPost.getContentShort()}"></span>
+                    <br>
+                    <br>
+                    <span th:each="tags : ${blogPost.getTags()}">
+                        <a th:class="tagsLink" th:href="@{/blog (tags=${tags.getSlug()})}" th:text="${'#' + tags.getSlug()}"></a>&nbsp;
+                    </span>
                 </div>
             </div>
         </div>

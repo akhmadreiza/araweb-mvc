@@ -97,6 +97,23 @@ a:hover {
     color: #878683;
 }
 
+/*custom link for tags*/
+a.tagsLink:link, a.tagsLink:visited {
+    background-color: white;
+    color: #bf1942;
+    border-radius: 5px;
+    padding: 1px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a.tagsLink:hover, a.tagsLink:active {
+    /*background-color: grey;*/
+    background-color: #bf1942;
+    color: black;
+}
+
 .nick {
     color: #878683;
 }
@@ -114,7 +131,7 @@ hr {
 }
 
 .hr-header {
-    margin: 30px 0px 10px;
+    margin: 30px 0px 0px;
 }
 
 .hr-footer {
