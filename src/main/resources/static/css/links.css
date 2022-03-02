@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    background-color: #121212;
+    text-align: center;
+    margin-bottom: 20vh;
+}
+
+.nick {
+color: #878683;
+}
+
+h1 {
+    font-size: 40px;
+    color: #FFFFFF;
+}
+
+h2 {
+    color: #FFFFFF;
+    padding: 15px;
+}
+
+p {
+    color: #bebebe;
+    max-width: 75vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.my-photo {
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 50px;
+}
+
+.links {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid white;
+    border-width: 2px;
+    width: 290px;
+    max-width: 60vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 40px;
+    text-decoration: none;
+}
+
+a {
+    color: white;
+    transition: color 0.5s;
+}
+
+a.links:hover {
+    color: #000;
+    background: #fff;
+}
+
+a i:hover{
+    color: #878683;
+}
+
+.fa_custom {
+    color: white;
+    text-align: center;
+    margin-top: 60px;
+}

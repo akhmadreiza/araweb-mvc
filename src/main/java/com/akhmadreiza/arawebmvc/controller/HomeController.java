@@ -36,6 +36,11 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/links")
+    public String getLinks(Model model) {
+        return "links";
+    }
+
     @GetMapping("")
     public String getHomeNoPath(Model model) {
         return getHome(model);

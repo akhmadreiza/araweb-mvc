@@ -51,10 +51,6 @@
             <div class="content-right">
                 <!--content goes here-->
                 <div class="content-container" style="background-color: inherit; padding: 0 10px;" th:if="${tagged != null && !tagged.isEmpty()}">
-                    <!--<h1 th:text="${'All post about #' + tagged}"></h1>-->
-                    <!--<p>
-                        <a th:class="tagsLink" th:href="@{/blog (tags=${tagged})}" th:text="${'#' + tagged}"></a>
-                    </p>-->
                     <p>
                         <a th:class="tagsLink" th:href="@{/blog (tags=${tagged})}" th:text="${'#' + tagged}"></a>&nbsp; - Showing <span th:text="${blogPosts.size()}"></span> <span th:text="${blogPosts.size() == 1 ? 'entry. ' : 'entries. '}"></span> <a th:text="Back" th:href="@{/blog}"></a>
                     </p>
