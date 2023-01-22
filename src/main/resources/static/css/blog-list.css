@@ -109,9 +109,10 @@ a:hover {
 /*custom link for tags*/
 a.tagsLink:link, a.tagsLink:visited {
     background-color: white;
-    color: #bf1942;
+    color: #1f1f1f;
     border-radius: 5px;
     padding: 1px 4px;
+    margin: 2px 0px 2px 0px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
