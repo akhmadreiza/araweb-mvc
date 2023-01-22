@@ -68,7 +68,7 @@
                     <br>
                     <br>
                     <span th:each="tags : ${blogPost.getTags()}">
-                        <a th:class="tagsLink" th:href="@{/blog (tags=${tags.getSlug()})}" th:text="${'#' + tags.getSlug()}"></a>&nbsp;
+                        <a th:class="tagsLink" th:href="@{/blog (tags=${tags.getSlug()})}" th:text="${'#' + tags.getSlug()}"></a>
                     </span>
                 </div>
             </div>
