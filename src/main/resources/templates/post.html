@@ -68,7 +68,7 @@
                     </h3>
                     <h3>
                         <span th:each="tags : ${content.getTags()}">
-                            <a th:class="tagsLink" th:href="@{/blog (tags=${tags.getSlug()})}" th:text="${'#' + tags.getSlug()}"></a>&nbsp;
+                            <a th:class="tagsLink" th:href="@{/blog (tags=${tags.getSlug()})}" th:text="${'#' + tags.getSlug()}"></a>
                         </span>
                     </h3>
                     <figure th:if="${content.getMedia() != null}" class="wp-block-image size-full">
